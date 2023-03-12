@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Python Code Deployment</title>
+  </head>
+  <body>
+    <h1>Python Code Deployment Example</h1>
+    <p>This is an example of how to deploy Python code in an HTML file.</p>
+    <script type="text/javascript">
+      // Read Python code from file
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", "script.py", true);
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          // Wrap Python code in JavaScript block
+          var pythonCode = xhr.responseText;
+          var script = document.createElement("Script");
+          script.type = "text/javascript";
+          script.text = pythonCode;
+          document.body.appendChild(script);
+        }
+      };
+      xhr.send();
+    </script>
+  </body>
+</html>
